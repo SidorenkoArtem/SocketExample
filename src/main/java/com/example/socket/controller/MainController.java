@@ -13,6 +13,6 @@ public class MainController {
     @SendTo("/topic/message")
     public AnswerMessage message(Message message) throws Exception {
         Thread.sleep(500);
-        return new AnswerMessage( message.getMessageText() + ": " + message.getMessag());
+        return new AnswerMessage( message.getMessageText() + ": " + message.getMessage());
     }
 }

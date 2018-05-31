@@ -34,8 +34,8 @@
 
         function sendName() {
             var name = document.getElementById('name').value;
-            var messag = document.getElementById('message').value;
-            stompClient.send("/app/main", {}, JSON.stringify({ 'messageText': name, 'messag':messag }));
+            var message = document.getElementById('message').value;
+            stompClient.send("/app/main", {}, JSON.stringify({ 'messageText': name, 'message':message }));
         }
 
         function showGreeting(message) {
@@ -46,6 +46,9 @@
             p.appendChild(document.createTextNode(message));
             response.appendChild(p);
         }
+        document.onload({
+
+        });
     </script>
 </head>
 <body>
