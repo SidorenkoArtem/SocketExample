@@ -34,13 +34,15 @@
 
         function sendName() {
             var name = document.getElementById('name').value;
-            stompClient.send("/app/main", {}, JSON.stringify({ 'messageText': name }));
+            var messag = document.getElementById('message').value;
+            stompClient.send("/app/main", {}, JSON.stringify({ 'messageText': name, 'messag':messag }));
         }
 
         function showGreeting(message) {
             var response = document.getElementById('response');
             var p = document.createElement('p');
             p.style.wordWrap = 'break-word';
+            console.log(message);
             p.appendChild(document.createTextNode(message));
             response.appendChild(p);
         }
@@ -56,6 +58,7 @@
     </div>
     <div id="conversationDiv">
         <label>What is your name?</label><input type="text" id="name" />
+        <label>Message</label><input type="text" id="message"/>
         <button id="sendName" onclick="sendName();">Send</button>
         <p id="response"></p>
     </div>
