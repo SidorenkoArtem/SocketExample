@@ -1,5 +1,6 @@
 package com.example.socket.controller;
 
+import com.example.socket.collection;
 import com.example.socket.model.AnswerMessage;
 import com.example.socket.model.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -13,6 +14,8 @@ public class MainController {
     @SendTo("/topic/message")
     public AnswerMessage message(Message message) throws Exception {
         Thread.sleep(500);
-        return new AnswerMessage( message.getMessageText() + ": " + message.getMessage());
+        AnswerMessage answerMessage = new AnswerMessage( message.getMessageText() + ": " + message.getMessage());
+        collection.addMessage(answerMessage);
+        return answerMessage;
     }
 }

@@ -1,12 +1,18 @@
 package com.example.socket;
 
+import com.example.socket.model.AnswerMessage;
+import java.util.ArrayList;
+import java.util.List;
+
 public class collection {
-    private static collection ourInstance = new collection();
+    public static List<AnswerMessage> messages;
 
-    public static collection getInstance() {
-        return ourInstance;
+    static {
+        messages = new ArrayList<>();
     }
 
-    private collection() {
+    public static void addMessage(AnswerMessage message) {
+        messages.add(message);
     }
+
 }

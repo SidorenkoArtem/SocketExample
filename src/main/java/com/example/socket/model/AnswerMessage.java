@@ -1,27 +1,15 @@
 package com.example.socket.model;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
 public class AnswerMessage {
-    private String context;
+    private String userName;
+    private final String context;
 
-    public AnswerMessage() {
-    }
-
-    public AnswerMessage(String context) {
+    @Builder
+    public AnswerMessage(final String context) {
         this.context = context;
-    }
-
-    public String getContext() {
-        return context;
-    }
-
-    public void setContext(String context) {
-        this.context = context;
-    }
-
-    @Override
-    public String toString() {
-        return "AnswerMessage{" +
-                "context='" + context + '\'' +
-                '}';
     }
 }
